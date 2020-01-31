@@ -90,4 +90,4 @@ function disconnectServer() {
 window.addEventListener("beforeunload", disconnectServer, false); // For everywhere else
 window.addEventListener("pagehide", disconnectServer, false); // For iPhone, mobile
 
-initWebcam(true);
+initWebcam(false);

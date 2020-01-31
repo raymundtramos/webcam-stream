@@ -1,9 +1,29 @@
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 video {
     width: 100%;
     height: 100%;
+}
+
+.top-container {
+    width: 100%;
+    height: 80%;
+    margin: 30px auto;
+}
+
+.bottom-container {
+    width: 640px;
+    margin: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.btn {
+    width: 100%;
 }
