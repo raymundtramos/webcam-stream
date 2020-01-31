@@ -23,6 +23,8 @@ function initWebcam(shouldUseFront) {
             //     min: 720,
             //     max: 1080
             // },
+            width: 640,
+            height: 360,
             facingMode: (shouldUseFront) ? 'user' : 'environment' // To use the rear camera on mobile
         }
     }
