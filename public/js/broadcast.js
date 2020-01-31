@@ -3,27 +3,37 @@ const video = document.getElementById('webcam');
 const socket = io.connect();
 var peerConnection = null;
 
-var userMediaOptions = userMediaOptions = {
-    audio: false,
-    video: {
-        width: {
-            min: 1280,
-            max: 1920
-        },
-        height: {
-            min: 720,
-            max: 1080
-        },
-        facingMode: 'environment' // To use the rear camera on mobile
-    }
+function frontButtonClick() {
+    initWebcam(true);
 }
 
-navigator.mediaDevices.getUserMedia(userMediaOptions)
-    .then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-        connectPeer(stream);
-    });
+function rearButtonClick() {
+    initWebcam(false);
+}
+
+function initWebcam(shouldUseFront) {
+    var userMediaOptions = {
+        audio: false,
+        video: {
+            // width: {
+            //     min: 1280,
+            //     max: 1920
+            // },
+            // height: {
+            //     min: 720,
+            //     max: 1080
+            // },
+            facingMode: (shouldUseFront) ? 'user' : 'environment' // To use the rear camera on mobile
+        }
+    }
+
+    navigator.mediaDevices.getUserMedia(userMediaOptions)
+        .then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+            connectPeer(stream);
+        });
+}
 
 function connectPeer(stream) {
     if (peerConnection) {
@@ -79,3 +89,5 @@ function disconnectServer() {
 
 window.addEventListener("beforeunload", disconnectServer, false); // For everywhere else
 window.addEventListener("pagehide", disconnectServer, false); // For iPhone, mobile
+
+initWebcam(true);
