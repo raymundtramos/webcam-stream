@@ -1,6 +1,6 @@
 {
     "name": "webcam-stream",
-    "version": "x.0.0",
+    "version": "1.0.0",
     "description": "Utilizes WebRTC to have multiple webcams be displayed in one page to broadcast in a live venue",
     "author": "Raymund Theodore Ramos",
     "dependencies": {
