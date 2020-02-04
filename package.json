@@ -1,17 +1,14 @@
 {
-  "name": "camstream",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "https": "^1.0.0",
-    "socket.io": "^2.3.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "webcam-stream",
+    "version": "x.0.0",
+    "description": "Utilizes WebRTC to have multiple webcams be displayed in one page to broadcast in a live venue",
+    "author": "Raymund Theodore Ramos",
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^2.3.0"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
 }

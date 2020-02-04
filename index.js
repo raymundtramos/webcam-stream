@@ -1,13 +1,7 @@
 const path = require('path');
 const express = require('express');
-const https = require('https');
-const fs = require('fs');
 const app = express();
-var options = {
-    key: fs.readFileSync('./cert/file.pem'),
-    cert: fs.readFileSync('./cert/file.crt')
-};
-const server = https.createServer(options, app);
+const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -42,4 +36,4 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
