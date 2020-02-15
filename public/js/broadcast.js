@@ -23,14 +23,14 @@ function initWebcam(shouldUseFront) {
             //     min: 720,
             //     max: 1080
             // },
-            width: 640,
-            height: 360,
+            width: 1280,
+            height: 720,
             facingMode: (shouldUseFront) ? 'user' : 'environment' // To use the rear camera on mobile
         }
     }
 
     navigator.mediaDevices.getUserMedia(userMediaOptions)
-        .then(function(stream) {
+        .then(function (stream) {
             video.srcObject = stream;
             video.play();
             connectPeer(stream);
@@ -48,17 +48,17 @@ function connectPeer(stream) {
     peerConnection = new RTCPeerConnection();
     peerConnection.addTrack(stream.getTracks()[0], stream);
     peerConnection.createOffer({
-            offerToReceiveVideo: true
-        })
+        offerToReceiveVideo: true
+    })
         .then(sdp => peerConnection.setLocalDescription(sdp))
-        .then(function() {
+        .then(function () {
             socket.emit('offer', {
                 id: id,
                 message: peerConnection.localDescription
             });
         });
 
-    peerConnection.onicecandidate = function(event) {
+    peerConnection.onicecandidate = function (event) {
         if (event.candidate) {
             socket.emit('candidate', {
                 id: id,
@@ -68,16 +68,16 @@ function connectPeer(stream) {
     };
 }
 
-socket.on('answer', function(data) {
+socket.on('answer', function (data) {
     if ((data.id == id) && peerConnection) {
         peerConnection.setRemoteDescription(data.message);
     }
 });
 
-socket.on('candidate', function(data) {
+socket.on('candidate', function (data) {
     if ((data.id == id) && peerConnection) {
         peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate))
-            .catch(function(e) {
+            .catch(function (e) {
                 console.error(e);
             });
     }
