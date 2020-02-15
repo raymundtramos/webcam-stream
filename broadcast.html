@@ -6,13 +6,14 @@
 </head>
 
 <body>
-    <div class="top-container">
+    <div class="container">
         <video id="webcam" controls="true" playsinline="true"></video>
+        <div class="bottom-container">
+            <button id="front-button" onclick="frontButtonClick()" class="btn">Front</button>
+            <button id="rear-button" onclick="rearButtonClick()" class="btn">Rear</button>
+        </div>
     </div>
-    <div class="bottom-container">
-        <button id="front-button" onclick="frontButtonClick()" class="btn">Front</button>
-        <button id="rear-button" onclick="rearButtonClick()" class="btn">Rear</button>
-    </div>
+
     <script src="socket.io.js"></script>
     <script src="js/broadcast.js"></script>
 </body>

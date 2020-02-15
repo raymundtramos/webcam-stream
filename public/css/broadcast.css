@@ -1,30 +1,35 @@
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: black;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
 }
 
 video {
-    width: 100%;
-    height: 100%;
+  width: auto;
+  height: 60vh;
 }
 
-.top-container {
-    width: 100%;
-    height: 80%;
-    margin: 30px auto;
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  row-gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottom-container {
-    width: 640px;
-    margin: auto;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+  width: 100%;
+  height: 20vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  justify-items: center;
 }
 
 .btn {
-    width: 100%;
+  width: 100%;
+  height: auto;
 }
