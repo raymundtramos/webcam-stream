@@ -19,7 +19,7 @@ Raymund Theodore Ramos
 1. On the display PC, install the dependencies run ```npm install```
 2. On the display PC, run the program with ```node index.js```
 3. On the display PC, open web browser and go to ```<website url>``` Example: ```https://localhost:xxxx```
-4. On another PC/smartphone, open web browser and go to base website ```<website url>/broadcast``` Example: ```https://localhost:xxx/broadcast```
+4. On another PC/smartphone, open web browser and go to base website ```<website url>/broadcast``` Example: ```https://localhost:xxxx/broadcast```
 5. The individual video streams in the display PC can be made fullscreen. This allows one camera to be broadcast in full screen.
 
 ### Example
